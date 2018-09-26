@@ -32,7 +32,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS meter_data (
 
 
 # Insert Values into meters table
-meter_array = ["Meter 1", "Meter 2", "Meter 3"]
+meter_array = ["Meter 1", "Meter 2", "Meter 3", "Meter 1"]
 for meter in meter_array:
     cursor.execute("INSERT INTO meters VALUES (NULL,?)" ,(meter,))
 
@@ -44,7 +44,9 @@ cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (1, now, 20))
 cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (2, now, 6000))
 cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (3, now, 300))
 cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (1, now, 1000))
-cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (2, now, 1))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (2, now, 23423))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (4, now, 434))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (4, now, 1244))
 
 connection.commit()
 connection.close()

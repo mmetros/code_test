@@ -5,9 +5,12 @@ app = Flask(__name__)
 
 @app.route('/meters')
 def index():
+    # open up a connection
     connection = sqlite3.connect('data.db')
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM meters group by label")
+    # create a query to access the meter_data
+    cursor.execute("SELECT DISTINCT id, label FROM meters")
+    # Access all those rows from our query
     rows = cursor.fetchall()
     connection.close()
     return render_template('meters.html', meters=rows)
@@ -19,6 +22,7 @@ def meter_data(id):
     cursor = connection.cursor()
     # create a query to access the meter_data
     cursor.execute("SELECT * FROM meter_data WHERE meter_id=? ORDER BY timestamp DESC",(id,))
+    # Access all those rows from our query
     row = cursor.fetchall()
     connection.close()
     return jsonify(row)
