@@ -7,7 +7,7 @@
     <!-- for meter in meters -->
     {% for meter in meters %}
       <!-- %s denotes a string and %meter[1] is dynamic -->
-      <li><a href="{{'/meters/%s'%meter[1]}}">{{meter[0]}}</a></li>
+      <li><a href="{{'/meters/%s'%meter[0]}}">{{meter[1]}}</a></li>
     {% endfor %}
   </ul>
 
