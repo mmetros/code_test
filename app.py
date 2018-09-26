@@ -1,32 +1,13 @@
-from flask import Flask, jsonify, render_template, request
-import sqlite3
+from flask import Flask
+from flask_restful import Api
+from meter import Meters, Meter
 
 app = Flask(__name__)
+api = Api(app)
 
-@app.route('/meters')
-def index():
-    # open up a connection
-    connection = sqlite3.connect('data.db')
-    cursor = connection.cursor()
-    # create a query to access the meter_data
-    cursor.execute("SELECT DISTINCT id, label FROM meters")
-    # Access all those rows from our query
-    rows = cursor.fetchall()
-    connection.close()
-    return render_template('meters.html', meters=rows)
 
-@app.route('/meters/<string:id>')
-def meter_data(id):
-    # open up a connection
-    connection = sqlite3.connect('data.db')
-    cursor = connection.cursor()
-    # create a query to access the meter_data
-    cursor.execute("SELECT * FROM meter_data WHERE meter_id=? ORDER BY timestamp DESC",(id,))
-    # Access all those rows from our query
-    row = cursor.fetchall()
-    connection.close()
-    return jsonify(row)
-
+api.add_resource(Meters, '/meters')
+api.add_resource(Meter, '/meters/<string:id>')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
