@@ -3,10 +3,14 @@
 
 <h1>Meters</h1>
 
-<!-- for meter in meters -->
-<ul>
-  {% for meter in meters %}
-    <li><a href="{{'/meters/%s'%meter[1]}}">{{meter[0]}}</a></li>
-  {% endfor %}
-</ul>
+  <ul>
+    <!-- for meter in meters -->
+    {% for meter in meters %}
+      <!-- %s denotes a string and %meter[1] is dynamic -->
+      <li><a href="{{'/meters/%s'%meter[1]}}">{{meter[0]}}</a></li>
+    {% endfor %}
+  </ul>
+
+
+
   {% endblock %}
