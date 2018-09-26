@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Meters</h1>
+
+<!-- for meter in meters -->
+<ul>
+  {% for meter in meters %}
+    <li><a href="{{'/meters/%s'%meter[1]}}">{{meter[0]}}</a></li>
+  {% endfor %}
+</ul>
+
+<script type="text/javascript" src="../static/js/meters.js">
+</script>
+  {% endblock %}
