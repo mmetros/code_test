@@ -32,7 +32,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS meter_data (
 
 
 # Insert Values into meters table
-meter_array = ["Meter 1", "Meter 2", "Meter 3", "Meter 1"]
+meter_array = ["Meter 1", "Meter 2", "Meter 3", "Meter 1", "Meter 5"]
 for meter in meter_array:
     cursor.execute("INSERT INTO meters VALUES (NULL,?)" ,(meter,))
 

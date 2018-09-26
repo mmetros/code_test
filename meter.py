@@ -19,9 +19,9 @@ class Meter(Resource):
     def get(self, id):
         rows = self.find_by_id(id)
         if rows:
-            return jsonify(rows)
+            return jsonify(Data=rows)
         else:
-            return jsonify("No Data Found for this Meter")
+            return jsonify(Message="No Data Found for this Meter")
 
 class Meters(Resource):
 
