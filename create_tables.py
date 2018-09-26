@@ -29,13 +29,14 @@ cursor.execute(create_meter_data)
 
 query = "INSERT INTO meters VALUES (NULL,?)"
 
-meter_array = ["Meter1", "Meter2", "Meter3"]
-for meter in meter_array:
-    cursor.execute(query,(meter,))
+# meter_array = ["Meter1", "Meter2", "Meter3"]
+# for meter in meter_array:
+#     cursor.execute(query,(meter,))
 
-cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (1, now,10))
-cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (2, now, 20))
-cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (3, now, 40))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (1, now,30))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (2, now, 70))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (3, now, 200))
+cursor.execute("INSERT INTO meter_data VALUES (NULL,?, ?, ?)", (1, now, 10))
 
 
 
@@ -73,8 +74,8 @@ def delete(id):
 
 see_table1()
 see_table2()
-
-delete(1)
-
-see_table1()
-see_table2()
+#
+# delete(1)
+#
+# see_table1()
+# see_table2()
